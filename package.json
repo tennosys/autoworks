@@ -19,7 +19,7 @@
     "test": "gulp test",
     "postinstall": "bower install --config.interactive=false"
   },
-  "main": "server.js",
+  "main": "gulp",
   "dependencies": {
     "acl": "~0.4.9",
     "async": "~1.5.2",
