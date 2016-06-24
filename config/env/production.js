@@ -11,7 +11,7 @@ module.exports = {
   // Binding to 127.0.0.1 is safer in production.
   host: process.env.OPENSHIFT_NODEJS_IP,
   db: {
-    uri: 'mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/apiedfund',,
+    uri: 'mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/apiedfund',
     options: {
       user: 'admin',
       pass: 'N8fk84xX3GFW'
