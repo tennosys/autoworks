@@ -17,7 +17,7 @@
   "scripts": {
     "start": "gulp",
     "test": "gulp test",
-    "postinstall": "bower install && gulp build-libs && gulp build"
+    "postinstall": "bower install --config.interactive=false"
   },
   "main": "server.js",
   "dependencies": {
