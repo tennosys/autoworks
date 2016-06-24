@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tennosys/autoworks.svg?branch=master)](https://travis-ci.org/tennosys/autoworks)
 ## AutoWorks
 Using MEAN.JS
 Before you begin we recommend you read about the basic building blocks that assemble a MEAN.JS application:
