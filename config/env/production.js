@@ -11,10 +11,16 @@ module.exports = {
   // Binding to 127.0.0.1 is safer in production.
   host: process.env.OPENSHIFT_NODEJS_IP,
   db: {
-    uri: 'mongodb://' + process.env.OPENSHIFT_MONGODB_DB_HOST + ':' + process.env.OPENSHIFT_MONGODB_DB_PORT + '/autoworks',
+/*    uri: 'mongodb://' + process.env.OPENSHIFT_MONGODB_DB_HOST + ':' + process.env.OPENSHIFT_MONGODB_DB_PORT + '/autoworks',
     options: {
       user: 'admin',
       pass: 'fPSm8Q4Xc2gX'
+    },*/
+    
+    uri: 'mongodb://ds023388.mlab.com:23388/mongodb-trial',
+    options: {
+      user: 'herman',
+      pass: 'Asu2016'
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
