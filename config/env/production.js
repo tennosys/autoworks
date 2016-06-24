@@ -7,16 +7,10 @@ module.exports = {
     certificate: './config/sslcerts/cert.pem',
     caBundle: './config/sslcerts/cabundle.crt'
   },
-  port: process.env.OPENSHIFT_NODEJS_PORT,
+  port: process.env.PORT || 8443,
   // Binding to 127.0.0.1 is safer in production.
-  host: process.env.OPENSHIFT_NODEJS_IP,
+  host: process.env.HOST || '0.0.0.0',
   db: {
-/*    uri: 'mongodb://' + process.env.OPENSHIFT_MONGODB_DB_HOST + ':' + process.env.OPENSHIFT_MONGODB_DB_PORT + '/autoworks',
-    options: {
-      user: 'admin',
-      pass: 'fPSm8Q4Xc2gX'
-    },*/
-    
     uri: 'mongodb://ds023388.mlab.com:23388/mongodb-trial',
     options: {
       user: 'herman',
