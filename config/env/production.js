@@ -14,7 +14,7 @@ module.exports = {
     uri: 'mongodb://' + process.env.OPENSHIFT_MONGODB_DB_HOST + ':' + process.env.OPENSHIFT_MONGODB_DB_PORT + '/autoworks',
     options: {
       user: 'admin',
-      pass: 'N8fk84xX3GFW'
+      pass: 'fPSm8Q4Xc2gX'
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
