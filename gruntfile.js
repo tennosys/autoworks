@@ -215,7 +215,7 @@ module.exports = function (grunt) {
     },
     buildcontrol: {
       options: {
-        dir: '/',
+        dir: '',
         commit: true,
         push: true,
         connectCommits: false,
