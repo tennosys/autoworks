@@ -223,7 +223,7 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'git@heroku.com:autoworkshop.git',
+          remote: 'https://git.heroku.com/autoworkshop.git',
           branch: 'master'
         }
       },
