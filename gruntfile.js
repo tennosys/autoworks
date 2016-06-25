@@ -212,7 +212,28 @@ module.exports = function (grunt) {
           return !fs.existsSync('config/env/local-development.js');
         }
       }
-    }
+    },
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        connectCommits: false,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      heroku: {
+        options: {
+          remote: 'git@heroku.com:autoworks.git',
+          branch: 'master'
+        }
+      },
+      openshift: {
+        options: {
+          remote: 'openshift',
+          branch: 'master'
+        }
+      }
+    },
   });
 
   grunt.event.on('coverage', function(lcovFileContents, done) {
