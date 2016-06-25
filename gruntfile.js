@@ -215,7 +215,7 @@ module.exports = function (grunt) {
     },
     buildcontrol: {
       options: {
-        dir: 'dist',
+        dir: '/',
         commit: true,
         push: true,
         connectCommits: false,
@@ -233,7 +233,7 @@ module.exports = function (grunt) {
           branch: 'master'
         }
       }
-    },
+    }
   });
 
   grunt.event.on('coverage', function(lcovFileContents, done) {
