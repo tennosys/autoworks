@@ -2,7 +2,7 @@ language: node_js
 sudo: false
 node_js:
   - 4
-  - 5
+#  - 5
 #  - 6
 os:
   - linux
@@ -47,5 +47,15 @@ notifications:
     on_failure: always  # options: [always|never|change] default: always
     on_start: never     # options: [always|never|change] default: always
 after_success:
-  - bash ./travis/after_success.sh
-  
+  - git config --global user.email "tennosys@gmail.com"
+  - git config --global user.name "tennosys"
+  - echo "Host heroku.com" >> ~/.ssh/config
+  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "   CheckHostIP no" >> ~/.ssh/config; 
+  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config; 
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then gem install heroku; fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then heroku keys:clear; fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then yes | heroku keys:add; fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then grunt build; fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then yes | grunt buildcontrol:heroku;  fi
+  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then heroku keys:clear; fi
