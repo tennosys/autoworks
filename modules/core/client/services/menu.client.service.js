@@ -17,7 +17,9 @@
       removeMenu: removeMenu,
       removeMenuItem: removeMenuItem,
       removeSubMenuItem: removeSubMenuItem,
-      validateMenuExistence: validateMenuExistence
+      validateMenuExistence: validateMenuExistence,
+      toggleSelectSection: toggleSelectSection,
+      isSectionSelected: isSectionSelected
     };
 
     init();
@@ -191,5 +193,14 @@
         throw new Error('MenuId was not provided');
       }
     }
+
+    function toggleSelectSection(menuState) {
+      self.openedMenu = (self.openedMenu === menuState ? null : menuState);
+    }
+
+    function isSectionSelected(menuState) {
+      return self.openedMenu === menuState;
+    }
+
   }
 }());

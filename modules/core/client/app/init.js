@@ -10,13 +10,23 @@
     .module(app.applicationModuleName)
     .config(bootstrapConfig);
 
-  function bootstrapConfig($locationProvider, $httpProvider) {
+  function bootstrapConfig($locationProvider, $httpProvider, $mdThemingProvider, $mdIconProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
 
     $httpProvider.interceptors.push('authInterceptor');
+
+    $mdIconProvider
+        .icon("menu", "./assets/svg/menu.svg", 24);
+    $mdThemingProvider.theme('default')
+      .primaryPalette('red', {
+        'default': '500',
+        'hue-1': '100',
+        'hue-2': '600',
+        'hue-3': 'A100'
+      });
   }
 
-  bootstrapConfig.$inject = ['$locationProvider', '$httpProvider'];
+  bootstrapConfig.$inject = ['$locationProvider', '$httpProvider', '$mdThemingProvider', '$mdIconProvider'];
 
   // Then define the init function for starting up the application
   angular.element(document).ready(init);

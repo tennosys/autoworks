@@ -5,7 +5,9 @@
     .module('core')
     .controller('HomeController', HomeController);
 
-  function HomeController() {
+  HomeController.$inject = ['$mdSidenav'];
+
+  function HomeController($mdSidenav) {
     var vm = this;
   }
 }());

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <base href="/">
   <title page-title></title>
   <meta name="description" content="{{description}}">
@@ -36,12 +36,26 @@
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content">
-    <section class="container">
-      {% block content %}{% endblock %}
-    </section>
-  </section>
+  <div flex layout-fill layout="column">
+    <!-- Container #1 Top -->
+
+    <md-toolbar layout="row" class="md-whiteframe-z1" ng-include="'/modules/core/client/views/header.client.view.html'">
+    </md-toolbar>
+    <!-- Container #2 Bottom -->
+    <div flex layout="row" >
+    <!-- Container #3 Left -->
+      <md-sidenav class="site-sidenav md-whiteframe-z2"
+      md-component-id="left" aria-label="Show Menu List"
+      md-is-locked-open="$mdMedia('gt-sm')" ng-include="'/modules/core/client/views/sidenav.client.view.html'" class="site-sidenav">
+      </md-sidenav>
+      <!-- Container #4 Right -->
+      <div flex layout="column" tabIndex="-1" role="main">
+        <md-content flex id="content">
+          {% block content %}{% endblock %}
+        </md-content>
+      </div>
+    </div>
+  </div>
 
   <!--Embedding The User Object-->
   <script type="text/javascript">
