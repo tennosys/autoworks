@@ -226,12 +226,6 @@ module.exports = function (grunt) {
           remote: 'https://git.heroku.com/autoworkshop.git',
           branch: 'master'
         }
-      },
-      openshift: {
-        options: {
-          remote: 'openshift',
-          branch: 'master'
-        }
       }
     }
   });
