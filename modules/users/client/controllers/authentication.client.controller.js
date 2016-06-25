@@ -5,9 +5,9 @@
     .module('users')
     .controller('AuthenticationController', AuthenticationController);
 
-  AuthenticationController.$inject = ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator'];
+  AuthenticationController.$inject = ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator', '$mdToast'];
 
-  function AuthenticationController($scope, $state, $http, $location, $window, Authentication, PasswordValidator) {
+  function AuthenticationController($scope, $state, $http, $location, $window, Authentication, PasswordValidator, $mdToast) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -36,11 +36,20 @@
       $http.post('/api/auth/signup', vm.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         vm.authentication.user = response;
-
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent("Welcome " + vm.authentication.user.displayName)
+            .hideDelay(3000)
+        );
         // And redirect to the previous or home page
         $state.go($state.previous.state.name || 'home', $state.previous.params);
       }).error(function (response) {
         vm.error = response.message;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(vm.error)
+            .hideDelay(3000)
+        );
       });
     }
 
@@ -56,11 +65,20 @@
       $http.post('/api/auth/signin', vm.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         vm.authentication.user = response;
-
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent("Welcome " + vm.authentication.user.displayName)
+            .hideDelay(3000)
+        );
         // And redirect to the previous or home page
         $state.go($state.previous.state.name || 'home', $state.previous.params);
       }).error(function (response) {
         vm.error = response.message;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(vm.error)
+            .hideDelay(3000)
+        );
       });
     }
 

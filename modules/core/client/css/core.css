@@ -1,5 +1,5 @@
 .content {
-  margin-top: 50;
+  margin-top: 50px;
 }
 .undecorated-link:hover {
   text-decoration: none;
@@ -12,9 +12,9 @@
   display: none !important;
 }
 .user-primary-account {
-  font-size: 30;
-  top: 10;
-  right: 10;
+  font-size: 30px;
+  top: 10px;
+  right: 10px;
   position: absolute;
 }
 .error-text {
@@ -36,7 +36,7 @@
 }
 
 md-toolbar h1 {
-  margin-left: 40;
+  margin-left: 40px;
   display: inline-flex;
 }
 @media (max-width: 959px){
@@ -61,8 +61,8 @@ md-sidenav  md-list {
 }
 
 #content  {
-  padding-left: 40;
-  padding-right: 40;
+  padding-left: 40px;
+  padding-right: 40px;
   padding-top: 5px;
 }
 
@@ -82,7 +82,7 @@ md-toolbar h1 {
 }
 
 md-bottom-sheet  md-icon {
-  margin-right:20;
+  margin-right:20px;
 }
 
 span.name {
@@ -94,7 +94,7 @@ span.name {
 md-list-item a{
   text-decoration: none;
   width: 100%;
-  padding-right: 20;
+  padding-right: 20px;
 }
 md-list-item a:hover, a:active{
   text-decoration: none;
@@ -158,11 +158,11 @@ md-sidenav {
   padding-top: 12px;
   width: 15px;
   float: right;
-  transition: transform .3s ease-in-out;
   -webkit-transition: -webkit-transform .3s ease-in-out;
   -moz-transition: -moz-transform .3s ease-in-out;
   -ms-transition: -ms-transform .3s ease-in-out;
   -o-transition: -o-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
 }
 
 .menu-toggle-list.ng-hide {
@@ -174,9 +174,9 @@ md-sidenav {
   color: inherit;
   cursor: pointer;
   font-weight: 400;
-  line-height: 40;
+  line-height: 40px;
   margin: 0;
-  max-height: 40;
+  max-height: 40px;
   overflow: hidden;
   padding: 0 16px;
   text-align: left;
@@ -187,7 +187,7 @@ md-sidenav {
 
 .menu-toggle-list {
   background: #fff;
-  max-height: 1300;
+  max-height: 1300px;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -214,13 +214,12 @@ body{
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   line-height: 1.42857143;
 }
-
 menu-toggle button span, menu-toggle a span, menu-link a span {
   font-family: roboto !important;
   font-size: 13px;
   color: #7f7f7f;
 }
-*:focus,
+*,
 *:active,
 *:hover {
   outline: none !important;
@@ -258,9 +257,9 @@ menu-toggle button span, menu-toggle a span, menu-link a span {
 md-sidenav, 
 md-sidenav.md-locked-open, 
 md-sidenav.md-closed.md-locked-open-add-active {
-    min-width: 200 !important;
+    min-width: 200px !important;
     width: 85vw !important;
-    max-width: 250 !important;
+    max-width: 250px !important;
 } 
 
 #user-display-name {
@@ -272,5 +271,5 @@ md-sidenav.md-closed.md-locked-open-add-active {
   color: #fff !important;
 }
 .zmdi span{
-  margin-left: 10;
+  margin-left: 10px;
 }
