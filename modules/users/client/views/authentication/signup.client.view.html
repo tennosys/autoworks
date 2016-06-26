@@ -27,16 +27,16 @@
       <label for="username">Username</label>
       <input type="text" id="username" name="username" class="form-control" ng-model="vm.credentials.username"  lowercase required>
       <div ng-messages="vm.userForm.username.$error">
-        <div ng-message="required">Username is required.</div>
+        <div ng-message="required" class="error-text">Username is required.</div>
       </div>
     </md-input-container>
     <md-input-container class="md-block">
       <label for="password">Password</label>
         <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password"  password-validator required>
       <div ng-messages="vm.userForm.password.$error">
-        <div ng-message="required">Password is required.</div>
+        <div ng-message="required" class="error-text">Password is required.</div>
         <div ng-repeat="passwordError in passwordErrors">
-          <div ng-show="vm.userForm.password.$error.requirements">{{passwordError}}</div>
+          <div ng-show="vm.userForm.password.$error.requirements" class="error-text">{{passwordError}}</div>
         </div>
       </div>
     </md-input-container>
