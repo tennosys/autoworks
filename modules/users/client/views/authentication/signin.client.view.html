@@ -6,14 +6,14 @@
       <label>User name</label>
       <input type="text" id="username" name="username" class="form-control" ng-model="vm.credentials.username"  lowercase required>
       <div ng-messages="vm.userForm.username.$error" role="alert">
-        <div ng-message="required" class="error-text">Username is required.</div>
+        <div ng-message="required" class="error">Username is required.</div>
       </div>
     </md-input-container>
     <md-input-container class="md-block">
       <label for="password">Password</label>
       <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" required>
       <div ng-messages="vm.userForm.password.$error" role="alert">
-        <div ng-message="required" class="error-text">Password is required.</div>
+        <div ng-message="required" class="error">Password is required.</div>
       </div>
     </md-input-container>
     <md-input-container class="md-block">
