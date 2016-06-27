@@ -310,19 +310,19 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(public/lib/*.{html,css,js,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/carowners/views/*.{html,css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/users/views/*.{html,css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/core/views/*.{css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/workshops/views/*.{html,css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/carowners/css/*.{html,css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/users/css/*.{html,css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/core/css/*.{css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/workshops/css/*.{html,css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/carowners/img/*.{html,css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/users/img/*.{html,css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/core/img/*.{css,jpg,png,ico}, toolbox.cacheFirst, {});
-toolbox.router.get(modules/workshops/img/*.{html,css,jpg,png,ico}, toolbox.cacheFirst, {});
+toolbox.router.get(/\/dist\/.*\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/carowners\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/users\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/core\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/workshops\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/carowners\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/users\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/core\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/workshops\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/carowners\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/users\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/core\/img\/*.{css,jpg,png,ico}/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/workshops\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
 
 
 

@@ -298,7 +298,7 @@ module.exports = function (grunt) {
       cacheId: packageJson.name,
       handleFetch: handleFetch,
       runtimeCaching: [{
-        urlPattern: /\/dist\/**\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/dist\/.*\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -307,7 +307,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/carowners\/views\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/modules\/carowners\/views\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -316,7 +316,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/users\/views\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/modules\/users\/views\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -325,7 +325,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/core\/views\/*.{css,jpg,png,ico}/,
+        urlPattern: /\/modules\/core\/views\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -334,7 +334,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/workshops\/views\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/modules\/workshops\/views\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -343,7 +343,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/carowners\/css\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/modules\/carowners\/css\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -352,7 +352,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/users\/css\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/modules\/users\/css\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -361,7 +361,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/core\/css\/*.{css,jpg,png,ico}/,
+        urlPattern: /\/modules\/core\/css\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -370,7 +370,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/workshops\/css\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/modules\/workshops\/css\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -379,7 +379,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/carowners\/img\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/modules\/carowners\/img\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -388,7 +388,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/users\/img\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/modules\/users\/img\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
@@ -406,7 +406,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/workshops\/img\/*.{html,css,jpg,png,ico}/,
+        urlPattern: /\/modules\/workshops\/img\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
