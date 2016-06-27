@@ -7,6 +7,8 @@ var _ = require('lodash'),
   defaultAssets = require('./config/assets/default'),
   testAssets = require('./config/assets/test'),
   testConfig = require('./config/env/test'),
+  swPrecache = require('sw-precache'),
+  packageJson = require('./package.json'),
   fs = require('fs'),
   path = require('path');
 
@@ -213,19 +215,10 @@ module.exports = function (grunt) {
         }
       }
     },
-    buildcontrol: {
-      options: {
-        dir: '~/build/tennosys/autoworks',
-        commit: true,
-        push: true,
-        connectCommits: false,
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-      },
-      heroku: {
-        options: {
-          remote: 'https://git.heroku.com/autoworkshop.git',
-          branch: 'master'
-        }
+    swPrecache: {
+      build: {
+        handleFetch: true,
+        rootDir: 'public'
       }
     }
   });
@@ -300,11 +293,42 @@ module.exports = function (grunt) {
     });
   });
 
+  function writeServiceWorkerFile(rootDir, handleFetch, callback) {
+    var config = {
+      cacheId: packageJson.name,
+      handleFetch: handleFetch,
+      staticFileGlobs: [
+        rootDir + '/**/*.{html,css,js,jpg,png,ico,svg}',
+        'modules/carowners/views/*.{html,css,jpg,png,ico,svg}',
+        'modules/users/views/*.{html,css,jpg,png,ico,svg}',
+        'modules/core/views/*.{css,jpg,png,ico,svg}',
+        'modules/workshops/views/*.{html,css,jpg,png,ico,svg}'
+      ],
+      stripPrefix: rootDir,
+      verbose: true
+    };
+
+    swPrecache.write(path.join(rootDir, 'service-worker.js'), config, callback);
+  }
+
+  grunt.registerMultiTask('swPrecache', function() {
+    var done = this.async();
+    var rootDir = this.data.rootDir;
+    var handleFetch = this.data.handleFetch;
+
+    writeServiceWorkerFile(rootDir, handleFetch, function(error) {
+      if (error) {
+        grunt.fail.warn(error);
+      }
+      done();
+    });
+  });
+
   // Lint CSS and JavaScript files.
   grunt.registerTask('lint', ['sass', 'less', 'eslint', 'csslint']);
 
   // Lint project files and minify them into two production files.
-  grunt.registerTask('build', ['env:dev', 'lint', 'ngAnnotate', 'uglify', 'cssmin']);
+  grunt.registerTask('build', ['env:dev', 'lint', 'ngAnnotate', 'uglify', 'cssmin', 'swPrecache']);
 
   // Run the project tests
   grunt.registerTask('test', ['env:test', 'lint', 'mkdir:upload', 'copy:localConfig', 'server', 'mochaTest', 'karma:unit', 'protractor']);

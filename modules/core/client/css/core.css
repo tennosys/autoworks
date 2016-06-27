@@ -111,7 +111,7 @@ md-sidenav {
 }
 
 .side-menu .md-button.active {
-  color: #C62828;
+  color: #2196F3;
 }
 
 .parent-list-item > menu-link > .active,
@@ -214,16 +214,23 @@ body{
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   line-height: 1.42857143;
 }
+
 menu-toggle button span, menu-toggle a span, menu-link a span {
   font-family: roboto !important;
   font-size: 13px;
   color: #7f7f7f;
 }
+
 *,
 *:active,
 *:hover {
   outline: none !important;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .profile-menu {

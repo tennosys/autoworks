@@ -41,7 +41,7 @@
       </md-button>
       <ul class="menu-toggle-list" ng-show="vm.isOpen(item.state)">
         <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(vm.authentication.user);">
-          <md-button ui-sref-active="active" ui-sref="{{subitem.state}}" >
+          <md-button ui-sref-active="active" ui-sref="{{subitem.state}}" ng-click="vm.toggleList()">
             {{subitem.title}}
           </md-button>
         </li>

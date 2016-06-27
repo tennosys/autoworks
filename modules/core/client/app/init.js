@@ -18,7 +18,7 @@
     $mdIconProvider
         .icon("menu", "./assets/svg/menu.svg", 24);
     $mdThemingProvider.theme('default')
-      .primaryPalette('red', {
+      .primaryPalette('blue', {
         'default': '500',
         'hue-1': '100',
         'hue-2': '600',
@@ -51,5 +51,6 @@
 
     // Then init the app
     angular.bootstrap(document, [app.applicationModuleName]);
+
   }
 }(ApplicationConfiguration));

@@ -1,0 +1,30 @@
+{
+  "name": "AutoWorks",
+  "short_name": "AutoWorks",
+    "icons": [{
+      "src": "assets/img/icon-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    }, {
+      "src": "assets/img/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "assets/img/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },{
+      "src": "assets/img/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    }],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2196F3",
+  "display": "standalone",
+  "theme_color": "#2196F3"
+}

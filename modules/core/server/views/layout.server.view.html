@@ -11,7 +11,7 @@
 
   <!-- Apple META -->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-status-bar-style" content="blue">
 
   <!-- Facebook META -->
   <meta property="fb:app_id" content="{{facebookAppId}}">
@@ -30,6 +30,10 @@
 
   <!-- Fav Icon -->
   <link href="{{favicon}}" rel="shortcut icon" type="image/x-icon">
+
+  <!-- Web Apps -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#2196F3">
 
   <!-- Application CSS Files -->
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
