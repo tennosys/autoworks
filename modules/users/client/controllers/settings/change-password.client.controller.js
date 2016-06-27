@@ -5,9 +5,9 @@
     .module('users')
     .controller('ChangePasswordController', ChangePasswordController);
 
-  ChangePasswordController.$inject = ['$scope', '$http', 'Authentication', 'PasswordValidator'];
+  ChangePasswordController.$inject = ['$scope', '$http', 'Authentication', 'PasswordValidator', '$mdToast'];
 
-  function ChangePasswordController($scope, $http, Authentication, PasswordValidator) {
+  function ChangePasswordController($scope, $http, Authentication, PasswordValidator, $mdToast) {
     var vm = this;
 
     vm.user = Authentication.user;
@@ -29,8 +29,18 @@
         $scope.$broadcast('show-errors-reset', 'vm.passwordForm');
         vm.success = true;
         vm.passwordDetails = null;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent('Password Changed Successfully')
+            .hideDelay(3000)
+        );
       }).error(function (response) {
         vm.error = response.message;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(vm.error)
+            .hideDelay(3000)
+        );
       });
     }
   }

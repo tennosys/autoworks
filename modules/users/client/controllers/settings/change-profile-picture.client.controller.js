@@ -5,9 +5,9 @@
     .module('users')
     .controller('ChangeProfilePictureController', ChangeProfilePictureController);
 
-  ChangeProfilePictureController.$inject = ['$scope', '$timeout', '$window', 'Authentication', 'FileUploader'];
+  ChangeProfilePictureController.$inject = ['$scope', '$timeout', '$window', 'Authentication', 'FileUploader', '$mdToast'];
 
-  function ChangeProfilePictureController($scope, $timeout, $window, Authentication, FileUploader) {
+  function ChangeProfilePictureController($scope, $timeout, $window, Authentication, FileUploader, $mdToast) {
     var vm = this;
 
     vm.user = Authentication.user;
@@ -56,6 +56,11 @@
       vm.user = Authentication.user = response;
 
       // Clear upload buttons
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent('Profile Picture Changed Successfully')
+          .hideDelay(3000)
+      );
       cancelUpload();
     }
 
@@ -66,6 +71,11 @@
 
       // Show error message
       vm.error = response.message;
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent(vm.error)
+          .hideDelay(3000)
+      );
     }
 
     // Change user profile picture

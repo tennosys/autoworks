@@ -83,7 +83,7 @@ function parse(e){for(var t,r=[],n=0,o=0,a="";null!=(t=PATH_REGEXP.exec(e));){va
 
 
 /* eslint-disable quotes, comma-spacing */
-var PrecacheConfig = [["/assets/img/icon-128.png","c380f6f3b5f7ec3b47f21d3f4412a972"],["/assets/img/icon-144.png","001289336ffedaae098a529e91d28e2b"],["/assets/img/icon-192.png","d8e8e51a4433578168d2bc808ac8be9a"],["/assets/img/icon-32.png","9764d9f25bca21acc1d9f1c202e51635"],["/assets/img/icon-384.png","b25d16e2e6c18e04827a917c4adfbcc1"],["/assets/img/profile-menu.png","bfdd15aa4b0a5913c41cee2024e8ca67"],["/assets/svg/menu.svg","204f61a19eb3371c4df719a3ef5b957c"],["/dist/application.min.css","aa4bcfff5c06141328a367fbcd136e65"],["/dist/application.min.js","74f68b708d2edba9a86e8bd3d1e5e86e"]];
+var PrecacheConfig = [["/assets/img/icon-128.png","c380f6f3b5f7ec3b47f21d3f4412a972"],["/assets/img/icon-144.png","001289336ffedaae098a529e91d28e2b"],["/assets/img/icon-192.png","d8e8e51a4433578168d2bc808ac8be9a"],["/assets/img/icon-32.png","9764d9f25bca21acc1d9f1c202e51635"],["/assets/img/icon-384.png","b25d16e2e6c18e04827a917c4adfbcc1"],["/assets/img/profile-menu.png","bfdd15aa4b0a5913c41cee2024e8ca67"],["/assets/svg/menu.svg","204f61a19eb3371c4df719a3ef5b957c"],["/dist/application.js","c95e3abf5958b9b343f715239439aa0f"],["/dist/application.min.css","0827f219ebc51f5366fa2856e66be29a"],["/dist/application.min.js","c9c7b17b11cd8d376fa04d9565ef3e35"]];
 /* eslint-enable quotes, comma-spacing */
 var CacheNamePrefix = 'sw-precache-v1-autoworks-' + (self.registration ? self.registration.scope : '') + '-';
 
@@ -310,19 +310,19 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(/\/dist\/.*\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/carowners\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/users\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/core\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/workshops\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/carowners\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/users\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/core\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/workshops\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/carowners\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/users\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/core\/img\/*.{css,jpg,png,ico}/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
-toolbox.router.get(/\/modules\/workshops\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/lib\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/carowners\/client\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/users\/client\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/core\/client\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/workshops\/client\/views\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/carowners\/client\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/users\/client\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/core\/client\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/workshops\/client\/css\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/carowners\/client\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/users\/client\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/core\/client\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
+toolbox.router.get(/\/modules\/workshops\/client\/img\/.*/, toolbox.cacheFirst, {"cache":{"maxEntries":200,"name":"items-cache"}});
 
 
 

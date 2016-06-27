@@ -5,9 +5,9 @@
     .module('users')
     .controller('PasswordController', PasswordController);
 
-  PasswordController.$inject = ['$scope', '$stateParams', '$http', '$location', 'Authentication', 'PasswordValidator'];
+  PasswordController.$inject = ['$scope', '$stateParams', '$http', '$location', 'Authentication', 'PasswordValidator', '$mdToast'];
 
-  function PasswordController($scope, $stateParams, $http, $location, Authentication, PasswordValidator) {
+  function PasswordController($scope, $stateParams, $http, $location, Authentication, PasswordValidator, $mdToast) {
     var vm = this;
 
     vm.resetUserPassword = resetUserPassword;
@@ -34,11 +34,21 @@
         // Show user success message and clear form
         vm.credentials = null;
         vm.success = response.message;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(vm.success)
+            .hideDelay(3000)
+        );
 
       }).error(function (response) {
         // Show user error message and clear form
         vm.credentials = null;
         vm.error = response.message;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(vm.error)
+            .hideDelay(3000)
+        );
       });
     }
 
@@ -63,6 +73,11 @@
         $location.path('/password/reset/success');
       }).error(function (response) {
         vm.error = response.message;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(vm.error)
+            .hideDelay(3000)
+        );
       });
     }
   }

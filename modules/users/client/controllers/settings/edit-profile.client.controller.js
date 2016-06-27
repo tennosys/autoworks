@@ -5,9 +5,9 @@
     .module('users')
     .controller('EditProfileController', EditProfileController);
 
-  EditProfileController.$inject = ['$scope', '$http', '$location', 'UsersService', 'Authentication'];
+  EditProfileController.$inject = ['$scope', '$http', '$location', 'UsersService', 'Authentication', '$mdToast'];
 
-  function EditProfileController($scope, $http, $location, UsersService, Authentication) {
+  function EditProfileController($scope, $http, $location, UsersService, Authentication, $mdToast) {
     var vm = this;
 
     vm.user = Authentication.user;
@@ -29,9 +29,19 @@
         $scope.$broadcast('show-errors-reset', 'vm.userForm');
 
         vm.success = true;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent('Profile Saved Successfully')
+            .hideDelay(3000)
+        );
         Authentication.user = response;
       }, function (response) {
         vm.error = response.data.message;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(vm.error)
+            .hideDelay(3000)
+        );
       });
     }
   }

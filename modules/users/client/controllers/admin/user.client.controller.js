@@ -5,9 +5,9 @@
     .module('users.admin')
     .controller('UserController', UserController);
 
-  UserController.$inject = ['$scope', '$state', '$window', 'Authentication', 'userResolve'];
+  UserController.$inject = ['$scope', '$state', '$window', 'Authentication', 'userResolve', '$mdToast'];
 
-  function UserController($scope, $state, $window, Authentication, user) {
+  function UserController($scope, $state, $window, Authentication, user, $mdToast) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -44,6 +44,11 @@
         });
       }, function (errorResponse) {
         vm.error = errorResponse.data.message;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(vm.error)
+            .hideDelay(3000)
+        );
       });
     }
   }
