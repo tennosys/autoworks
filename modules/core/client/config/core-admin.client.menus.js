@@ -11,6 +11,7 @@
     menuService.addMenuItem('topbar', {
       title: 'Admin',
       state: 'admin',
+      class: 'zmdi zmdi-face',
       type: 'dropdown',
       roles: ['admin']
     });

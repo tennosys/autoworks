@@ -12,6 +12,7 @@
       title: 'Workshops',
       state: 'workshops',
       type: 'dropdown',
+      class: 'zmdi zmdi-wrench',
       roles: ['*']
     });
 

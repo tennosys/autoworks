@@ -14,16 +14,30 @@ var WorkshopSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  title: {
+  companyName: {
     type: String,
     default: '',
     trim: true,
-    required: 'Title cannot be blank'
+    required: 'Company name cannot be blank'
   },
-  content: {
+  address: {
     type: String,
     default: '',
-    trim: true
+    required: 'Address cannot be blank'
+  },
+  phoneNo: {
+    type: String,
+    default: '',
+    required: 'Phone no cannot be blank',
+    match: [/^08[0-9]{9,}$/, 'Phone no is valid']
+  },
+  description: {
+    type: String,
+    default: ''
+  },
+  openingHours: {
+    type: String,
+    default: ''
   },
   user: {
     type: Schema.ObjectId,

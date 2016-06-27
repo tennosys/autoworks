@@ -79,7 +79,7 @@
 
   <script>
     // sw-precache
-    if ('serviceWorker' in navigator) {
+    /*if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js', { scope: '/' }).then(function(reg) {
         reg.onupdatefound = function() {
           var installingWorker = reg.installing;
@@ -101,7 +101,7 @@
       }).catch(function(e) {
         console.error('Error during service worker registration:', e);
       });
-    }
+    }*/
   </script>
 </body>
 

@@ -1,21 +1,20 @@
-<section>
-  <div class="page-header">
-    <h1>Workshops</h1>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="workshop in vm.workshops" ui-sref="workshops.view({ workshopId: workshop._id })" class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="workshop.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="workshop.user" ng-bind="workshop.user.displayName"></span>
-        <span ng-if="!workshop.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="workshop.title"></h4>
-      <p class="list-group-item-text" ng-bind="workshop.content"></p>
-    </a>
-  </div>
-  <div class="alert alert-warning text-center" ng-if="vm.workshops.$resolved && !vm.workshops.length">
-    No workshops yet, why don't you <a ui-sref="workshops.create">create one</a>?
-  </div>
-</section>
+<div flex-gt-sm flex>
+  <md-toolbar layout="row" class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <span>Workshops</span>
+    </div>
+  </md-toolbar>
+  <md-content>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">{{vm.workshops.length}} workshops</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="item in vm.workshops" ng-click="null" ui-sref="workshops.view({ workshopId: item._id })">
+        <div class="md-list-item-text" layout="column">
+          <h3>{{item.companyName}}</h3>
+          <h4>{{item.address}} - {{item.phoneNo}}</h4>
+          <p>{{item.openingHours}}</p>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>

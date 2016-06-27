@@ -1,0 +1,22 @@
+<section layout-margin>
+  <h3>{{vm.category._id ? 'Edit Category' : 'New Category'}}</h3>
+  <p></p>
+  <md-content layout-padding>
+    <form name="vm.form.categoryForm" class="form-horizontal" ng-submit="vm.save(vm.form.categoryForm.$valid)" novalidate>
+      <md-input-container class="md-block">
+        <label class="control-label" for="category">Category</label>
+        <input name="category" type="text" ng-model="vm.category.category" id="category" class="form-control" required>
+        <div ng-messages="vm.form.categoryForm.category.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Category category is required.</p>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="description">Description</label>
+        <textarea name="description" data-ng-model="vm.category.description" id="description" class="form-control" cols="30" rows="10"></textarea>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <md-button class="md-raised md-primary" type="submit">{{vm.category._id ? 'Update' : 'Create'}}</md-button>
+      </md-input-container>
+    </form>
+  </md-content>
+</section>

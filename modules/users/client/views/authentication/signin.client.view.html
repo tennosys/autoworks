@@ -1,29 +1,30 @@
-
-<h3>Sign in</h3>
-<md-content layout-padding>
-  <form name="vm.userForm" ng-submit="vm.signin(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
-    <md-input-container class="md-block">
-      <label>User name</label>
-      <input type="text" id="username" name="username" class="form-control" ng-model="vm.credentials.username"  lowercase required>
-      <div ng-messages="vm.userForm.username.$error" role="alert">
-        <div ng-message="required" class="error">Username is required.</div>
-      </div>
-    </md-input-container>
-    <md-input-container class="md-block">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" required>
-      <div ng-messages="vm.userForm.password.$error" role="alert">
-        <div ng-message="required" class="error">Password is required.</div>
-      </div>
-    </md-input-container>
-    <md-input-container class="md-block">
-      <div layout="row" layout-sm="column" layout-margin>
-        <md-button class="md-raised md-primary" type="submit">Sign in</md-button>
-        <md-button class="md-raised md-button" ui-sref="authentication.signup">Sign up</md-button>
-      </div>
-      <div>
-        <md-button md-no-ink class="md-primary" ui-sref="password.forgot">Forgot your password?</md-button>
-      </div>
-    </md-input-container>
-  </form>
-</md-content>
+<section layout-margin>
+  <h3>Sign in</h3>
+  <md-content layout-padding>
+    <form name="vm.userForm" ng-submit="vm.signin(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
+      <md-input-container class="md-block">
+        <label>User name</label>
+        <input type="text" id="username" name="username" class="form-control" ng-model="vm.credentials.username"  lowercase required>
+        <div ng-messages="vm.userForm.username.$error" role="alert">
+          <div ng-message="required" class="error">Username is required.</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" required>
+        <div ng-messages="vm.userForm.password.$error" role="alert">
+          <div ng-message="required" class="error">Password is required.</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <div layout="row" layout-sm="column" layout-margin>
+          <md-button class="md-raised md-primary" type="submit">Sign in</md-button>
+          <md-button class="md-raised md-button" ui-sref="authentication.signup">Sign up</md-button>
+        </div>
+        <div>
+          <md-button md-no-ink class="md-primary" ui-sref="password.forgot">Forgot your password?</md-button>
+        </div>
+      </md-input-container>
+    </form>
+  </md-content>
+</section>

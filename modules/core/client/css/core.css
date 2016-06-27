@@ -60,12 +60,6 @@ md-sidenav  md-list {
   padding: 0 0 8px 0;
 }
 
-#content  {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 5px;
-}
-
 md-button.menuBtn > md-icon {
   fill:white;
   width:24px;
@@ -279,4 +273,12 @@ md-sidenav.md-closed.md-locked-open-add-active {
 }
 .zmdi span{
   margin-left: 10px;
+}
+md-divider {
+  margin-top: 10px;
+  margin-bottom: 0; 
+}
+md-list-item a{
+  padding-top: 10px !important;
+  margin: 0 !important;
 }

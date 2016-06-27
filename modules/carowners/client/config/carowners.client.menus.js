@@ -9,24 +9,38 @@
 
   function menuConfig(menuService) {
     menuService.addMenuItem('topbar', {
-      title: 'Carowners',
+      title: 'Car Owners',
       state: 'carowners',
       type: 'dropdown',
-      roles: ['user']
+      class: 'zmdi zmdi-car',
+      roles: ['admin', 'user']
     });
 
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'carowners', {
-      title: 'List Carowners',
+      title: 'List Car Owners',
       state: 'carowners.list',
+      roles: ['admin']
+    });
+
+
+    menuService.addSubMenuItem('topbar', 'carowners', {
+      title: 'List Workshop Car Owners',
+      state: 'carowners.listuser',
       roles: ['user']
     });
 
     // Add the dropdown create item
     menuService.addSubMenuItem('topbar', 'carowners', {
-      title: 'Create Carowner',
+      title: 'Create Car Owner',
       state: 'carowners.create',
       roles: ['user']
+    });
+
+    menuService.addSubMenuItem('topbar', 'carowners', {
+      title: 'My Car',
+      state: 'carowners.user',
+      roles: ['carowner']
     });
   }
 }());

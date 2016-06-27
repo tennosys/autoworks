@@ -1,0 +1,22 @@
+<section layout-margin>
+  <h3>{{vm.brand._id ? 'Edit Brand' : 'New Brand'}}</h3>
+  <p></p>
+  <md-content layout-padding>
+    <form name="vm.form.brandForm" class="form-horizontal" ng-submit="vm.save(vm.form.brandForm.$valid)" novalidate>
+      <md-input-container class="md-block">
+        <label class="control-label" for="brand">Brand</label>
+          <input name="brand" type="text" ng-model="vm.brand.brand" id="brand" class="form-control" required>
+          <div ng-messages="vm.form.brandForm.brand.$error" role="alert">
+            <div ng-message="required">Brand brand is required.</div>
+          </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="description">Description</label>
+        <textarea name="description" data-ng-model="vm.brand.description" id="description" class="form-control" cols="30" rows="10"></textarea>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <md-button class="md-raised md-primary" type="submit">{{vm.brand._id ? 'Update' : 'Create'}}</md-button>
+      </md-input-container>
+    </form>
+  </md-content>
+</section>

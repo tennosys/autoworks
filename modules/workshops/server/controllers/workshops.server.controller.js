@@ -47,8 +47,11 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
   var workshop = req.workshop;
 
-  workshop.title = req.body.title;
-  workshop.content = req.body.content;
+  workshop.companyName = req.body.companyName;
+  workshop.address = req.body.address;
+  workshop.phoneNo = req.body.phoneNo;
+  workshop.description = req.body.description;
+  workshop.openingHours = req.body.openingHours;
 
   workshop.save(function (err) {
     if (err) {
@@ -132,6 +135,9 @@ exports.listByUser = function (req, res, next) {
       if (err) {
         return next(err);
       }
+      workshop = workshop ? workshop.toJSON() : {};
+      workshop.isCurrentUserOwner = true;
+
       res.json(workshop);
     });
   });

@@ -35,9 +35,9 @@
       </md-button>
     </div>
     <div ng-switch-when="dropdown">
-      <md-button class="md-button-toggle" ng-click="vm.toggleOpen(item.state)">
+      <md-button class="md-button-toggle" ng-click="vm.toggleOpen(item.state)" ng-class="{'{{item.class}}' : true}">
           {{item.title}}
-          <md-icon md-font-set="zmdi zmdi-chevron-down" class="md-toggle-icon" ng-class="{'toggled' : vm.isOpen('account')}"></md-icon>
+          <md-icon md-font-set="zmdi zmdi-chevron-down" class="md-toggle-icon" ng-class="{'toggled' : vm.isOpen(item.state)}"></md-icon>
       </md-button>
       <ul class="menu-toggle-list" ng-show="vm.isOpen(item.state)">
         <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(vm.authentication.user);">

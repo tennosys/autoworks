@@ -45,7 +45,7 @@
           workshopResolve: getMyWorkshop
         },
         data: {
-          pageTitle: 'Workshop {{ workshopResolve.title }}'
+          pageTitle: 'Workshop {{ workshopResolve.companyName }}'
         }
       })
       .state('workshops.edit', {
@@ -58,7 +58,7 @@
         },
         data: {
           roles: ['user', 'admin'],
-          pageTitle: 'Edit Workshop {{ workshopResolve.title }}'
+          pageTitle: 'Edit Workshop {{ workshopResolve.companyName }}'
         }
       })
       .state('workshops.view', {

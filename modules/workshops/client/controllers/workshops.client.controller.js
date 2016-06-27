@@ -5,9 +5,9 @@
     .module('workshops')
     .controller('WorkshopsController', WorkshopsController);
 
-  WorkshopsController.$inject = ['$scope', '$state', 'workshopResolve', '$window', 'Authentication'];
+  WorkshopsController.$inject = ['$scope', '$state', 'workshopResolve', '$window', 'Authentication', '$mdToast'];
 
-  function WorkshopsController($scope, $state, workshop, $window, Authentication) {
+  function WorkshopsController($scope, $state, workshop, $window, Authentication, $mdToast) {
     var vm = this;
 
     vm.workshop = workshop;
@@ -44,6 +44,11 @@
 
       function errorCallback(res) {
         vm.error = res.data.message;
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(vm.error)
+            .hideDelay(3000)
+        );
       }
     }
   }

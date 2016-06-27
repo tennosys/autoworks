@@ -1,28 +1,34 @@
-<section>
-  <div class="page-header">
-    <h1>{{vm.workshop._id ? 'Edit Workshop' : 'New Workshop'}}</h1>
-  </div>
-  <div class="col-md-12">
+<section layout-margin layout-padding>
+  <h3>{{vm.workshop._id ? 'Edit Workshop' : 'New Workshop'}}</h3>
+  <p></p>
+  <md-content layout-padding>
     <form name="vm.form.workshopForm" class="form-horizontal" ng-submit="vm.save(vm.form.workshopForm.$valid)" novalidate>
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="title">Title</label>
-          <input name="title" type="text" ng-model="vm.workshop.title" id="title" class="form-control" placeholder="Title" required>
-          <div ng-messages="vm.form.workshopForm.title.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Workshop title is required.</p>
-          </div>
+      <md-input-container class="md-block">
+        <label class="control-label" for="companyName">Company Name</label>
+        <input name="companyName" type="text" ng-model="vm.workshop.companyName" id="companyName" class="form-control" required>
+        <div ng-messages="vm.form.workshopForm.companyName.$error" role="alert">
+          <div ng-message="required">Company name workshop is required.</div>
         </div>
-        <div class="form-group">
-          <label class="control-label" for="content">Content</label>
-          <textarea name="content" data-ng-model="vm.workshop.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.workshop._id ? 'Update' : 'Create'}}</button>
-        </div>
-        <div ng-show="vm.error" class="text-danger">
-          <strong ng-bind="vm.error"></strong>
-        </div>
-      </fieldset>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="phoneNo">Phone No</label>
+        <input name="phoneNo" type="text" ng-model="vm.workshop.phoneNo" id="phoneNo" class="form-control">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="address">Address</label>
+        <textarea name="address" data-ng-model="vm.workshop.address" id="address" class="form-control" cols="30" rows="10"></textarea>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="openingHours">Opening Hours</label>
+        <input name="openingHours" type="text" ng-model="vm.workshop.openingHours" id="openingHours" class="form-control">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="description">Description</label>
+        <textarea name="description" data-ng-model="vm.workshop.description" id="description" class="form-control" cols="30" rows="10"></textarea>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <md-button class="md-raised md-primary" type="submit">{{vm.workshop._id ? 'Update' : 'Create'}}</md-button>
+      </md-input-container>
     </form>
-  </div>
+  </md-content>
 </section>
