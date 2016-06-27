@@ -43,11 +43,17 @@
               switch (installingWorker.state) {
                 case 'installed':
                   if (navigator.serviceWorker.controller) {
-                    $mdToast.show(
-                      $mdToast.simple()
-                        .textContent('New or updated content is available.')
-                        .hideDelay(3000)
-                    );
+                    var toast = $mdToast.simple()
+                      .textContent('New or updated content is available.')
+                      .action('REFRESH')
+                      .highlightAction(true)
+                      .highlightClass('md-accent')
+                      .hideDelay(3000);
+                    $mdToast.show(toast).then(function(response) {
+                      if ( response == 'ok' ) {
+                        window.location.reload();
+                      }
+                    });
                     console.log('New or updated content is available.');
                   } else {
                     $mdToast.show(
