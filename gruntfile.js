@@ -298,44 +298,122 @@ module.exports = function (grunt) {
       cacheId: packageJson.name,
       handleFetch: handleFetch,
       runtimeCaching: [{
-        urlPattern: rootDir + '/lib/*.{html,css,js,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/dist\/**\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/carowners/views/*.{html,css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/carowners\/views\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/users/views/*.{html,css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/users\/views\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/core/views/*.{css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/core\/views\/*.{css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/workshops/views/*.{html,css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/workshops\/views\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/carowners/css/*.{html,css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/carowners\/css\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/users/css/*.{html,css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/users\/css\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/core/css/*.{css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/core\/css\/*.{css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/workshops/css/*.{html,css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/workshops\/css\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/carowners/img/*.{html,css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/carowners\/img\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/users/img/*.{html,css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/users\/img\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/core/img/*.{css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/core\/img\/*.{css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }, {
-        urlPattern: 'modules/workshops/img/*.{html,css,jpg,png,ico}',
-        handler: 'cacheFirst'
+        urlPattern: /\/modules\/workshops\/img\/*.{html,css,jpg,png,ico}/,
+        handler: 'cacheFirst',
+        options: {
+          cache: {
+            maxEntries: 200,
+            name: 'items-cache'
+          }
+        }
       }],
       staticFileGlobs: [
         rootDir + '/assets/**/*.{html,css,js,jpg,png,ico,svg}',
