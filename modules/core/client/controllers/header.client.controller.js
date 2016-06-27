@@ -50,7 +50,7 @@
                       .highlightClass('md-accent')
                       .hideDelay(3000);
                     $mdToast.show(toast).then(function(response) {
-                      if ( response == 'ok' ) {
+                      if (response === 'ok') {
                         window.location.reload();
                       }
                     });
