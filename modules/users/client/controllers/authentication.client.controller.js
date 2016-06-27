@@ -35,7 +35,7 @@
 
       $http.post('/api/auth/signup', vm.credentials).success(function (response) {
         // If successful we assign the response to the global user model
-        vm.authentication.user = response;
+        vm.authentication = response;
         $mdToast.show(
           $mdToast.simple()
             .textContent("Welcome " + vm.authentication.user.displayName)
@@ -64,7 +64,7 @@
 
       $http.post('/api/auth/signin', vm.credentials).success(function (response) {
         // If successful we assign the response to the global user model
-        vm.authentication.user = response;
+        vm.authentication = response;
         $mdToast.show(
           $mdToast.simple()
             .textContent("Welcome " + vm.authentication.user.displayName)
