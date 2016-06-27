@@ -10,12 +10,12 @@
       </md-button>
       <ul class="menu-toggle-list" ng-show="vm.isOpen('account')">
         <li ng-repeat="item in vm.accountMenu.items | orderBy: 'position'">
-          <md-button ui-sref-active="active" ui-sref="{{item.state}}" >
+          <md-button ui-sref-active="active" ui-sref="{{item.state}}" ng-click="vm.toggleList()">
             {{item.title}}
           </md-button>
         </li>
         <li ng-show="vm.authentication.user">
-          <md-button href="/api/auth/signout" target="_self" ng-click="vm.toggleOpen('signout')">
+          <md-button href="/api/auth/signout" target="_self" ng-click="vm.toggleList()">
               Signout
           </md-button>
         </li>
@@ -30,7 +30,7 @@
   <li ng-repeat="item in vm.menu.items | orderBy: 'position'" class="parent-list-item"
   ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type">
     <div ng-switch-default>
-      <md-button ui-sref-active="active" ui-sref="{{item.state}}" ng-click="vm.toggleOpen(item.state)">
+      <md-button ui-sref-active="active" ui-sref="{{item.state}}" ng-click="vm.toggleList()">
           {{item.title}}
       </md-button>
     </div>
@@ -49,12 +49,12 @@
     </div>
   </li>
   <li class="parent-list-item" ng-hide="vm.authentication.user">
-    <md-button ui-sref-active="active" ui-sref="authentication.signup" ng-click="vm.toggleOpen('signup')" class="zmdi zmdi-account-add">
+    <md-button ui-sref-active="active" ui-sref="authentication.signup" ng-click="vm.toggleList()" class="zmdi zmdi-account-add">
         Sign Up
     </md-button>
   </li>
   <li class="parent-list-item" ng-hide="vm.authentication.user">
-    <md-button ui-sref-active="active" ui-sref="authentication.signin" ng-click="vm.toggleOpen('signin')" class="zmdi zmdi-account">
+    <md-button ui-sref-active="active" ui-sref="authentication.signin" ng-click="vm.toggleList()" class="zmdi zmdi-account">
         Sign In
     </md-button>
   </li>
