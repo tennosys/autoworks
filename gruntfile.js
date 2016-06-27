@@ -397,7 +397,7 @@ module.exports = function (grunt) {
           }
         }
       }, {
-        urlPattern: /\/modules\/core\/img\/*.{css,jpg,png,ico}/,
+        urlPattern: /\/modules\/core\/img\/.*/,
         handler: 'cacheFirst',
         options: {
           cache: {
