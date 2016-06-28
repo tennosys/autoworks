@@ -1,21 +1,20 @@
-<section>
-  <div class="page-header">
-    <h1>Carowners</h1>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="carowner in vm.carowners" ui-sref="carowners.view({ carownerId: carowner._id })" class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="carowner.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="carowner.user" ng-bind="carowner.user.displayName"></span>
-        <span ng-if="!carowner.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="carowner.title"></h4>
-      <p class="list-group-item-text" ng-bind="carowner.content"></p>
-    </a>
-  </div>
-  <div class="alert alert-warning text-center" ng-if="vm.carowners.$resolved && !vm.carowners.length">
-    No carowners yet, why don't you <a ui-sref="carowners.create">create one</a>?
-  </div>
-</section>
+<div flex-gt-sm flex>
+  <md-toolbar layout="row" class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <span>Carowners</span>
+    </div>
+  </md-toolbar>
+  <md-content>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">{{vm.carowners.length}} carowners</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="item in vm.carowners" ng-click="null" ui-sref="carowners.view({ carownerId: item._id })">
+        <div class="md-list-item-text" layout="column">
+          <h3>{{item.user.displayName}}</h3>
+          <h4>{{item.brand.brand}} - {{item.policeNo}}</h4>
+          <p>{{item.address}}</p>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>

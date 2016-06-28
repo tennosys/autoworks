@@ -20,14 +20,7 @@
     menuService.addSubMenuItem('topbar', 'carowners', {
       title: 'List Car Owners',
       state: 'carowners.list',
-      roles: ['admin']
-    });
-
-
-    menuService.addSubMenuItem('topbar', 'carowners', {
-      title: 'List Workshop Car Owners',
-      state: 'carowners.listuser',
-      roles: ['user']
+      roles: ['admin', 'user', 'carowner']
     });
 
     // Add the dropdown create item

@@ -81,7 +81,7 @@ exports.delete = function (req, res) {
  * List of Brands
  */
 exports.list = function (req, res) {
-  Brand.find().sort('-created').populate('user', 'displayName').exec(function (err, brands) {
+  Brand.find().sort('-created').exec(function (err, brands) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

@@ -25,15 +25,18 @@ exports.invokeRolesPolicies = function () {
     roles: ['user'],
     allows: [{
       resources: '/api/carowners',
-      permissions: ['get', 'post']
+      permissions: ['post', 'get']
     }, {
       resources: '/api/carowners/:carownerId',
       permissions: ['get']
+    }, {
+      resources: '/api/carowners/workshop',
+      permissions: ['get']
     }]
   }, {
-    roles: ['guest'],
+    roles: ['carowner'],
     allows: [{
-      resources: '/api/carowners',
+      resources: '/api/carowners/user',
       permissions: ['get']
     }, {
       resources: '/api/carowners/:carownerId',
@@ -49,7 +52,8 @@ exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
 
   // If an carowner is being processed and the current user created it then allow any manipulation
-  if (req.carowner && req.user && req.carowner.user && req.carowner.user.id === req.user.id) {
+  if ((req.carowner && req.user && req.carowner.user && req.carowner.user.id === req.user.id)
+  || (req.carowner && req.user && req.carowner.userWorkshop && req.carowner.userWorkshop.id === req.user.id)) {
     return next();
   }
 

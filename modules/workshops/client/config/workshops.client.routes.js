@@ -83,11 +83,10 @@
     }).$promise;
   }
 
-  getMyWorkshop.$inject = ['WorkshopsService', 'Authentication'];
+  getMyWorkshop.$inject = ['WorkshopsService'];
 
-  function getMyWorkshop(WorkshopsService, Authentication) {
+  function getMyWorkshop(WorkshopsService) {
     return WorkshopsService.user({
-      username: Authentication.user.username,
       subroute: 'user'
     }).$promise;
   }

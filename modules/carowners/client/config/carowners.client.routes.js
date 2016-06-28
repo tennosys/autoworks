@@ -25,15 +25,27 @@
       })
       .state('carowners.create', {
         url: '/create',
-        templateUrl: 'modules/carowners/client/views/form-carowner.client.view.html',
+        templateUrl: 'modules/carowners/client/views/create-carowner.client.view.html',
         controller: 'CarownersController',
         controllerAs: 'vm',
         resolve: {
           carownerResolve: newCarowner
         },
         data: {
-          roles: ['user', 'admin'],
-          pageTitle: 'Carowners Create'
+          roles: ['user'],
+          pageTitle: 'Car Owners Create'
+        }
+      })
+      .state('carowners.user', {
+        url: '/user',
+        templateUrl: 'modules/carowners/client/views/view-carowner.client.view.html',
+        controller: 'CarownersController',
+        controllerAs: 'vm',
+        resolve: {
+          carownerResolve: getMyCarowner
+        },
+        data: {
+          pageTitle: 'Car Owner {{ carownerResolve.title }}'
         }
       })
       .state('carowners.edit', {
@@ -45,8 +57,8 @@
           carownerResolve: getCarowner
         },
         data: {
-          roles: ['user', 'admin'],
-          pageTitle: 'Edit Carowner {{ carownerResolve.title }}'
+          roles: ['user', 'admin', 'carowner'],
+          pageTitle: 'Edit Car Owner {{ carownerResolve.title }}'
         }
       })
       .state('carowners.view', {
@@ -58,7 +70,7 @@
           carownerResolve: getCarowner
         },
         data: {
-          pageTitle: 'Carowner {{ carownerResolve.title }}'
+          pageTitle: 'Car Owner {{ carownerResolve.title }}'
         }
       });
   }
@@ -75,5 +87,13 @@
 
   function newCarowner(CarownersService) {
     return new CarownersService();
+  }
+
+  getMyCarowner.$inject = ['CarownersService'];
+
+  function getMyCarowner(CarownersService) {
+    return CarownersService.user({
+      subroute: 'user'
+    }).$promise;
   }
 }());

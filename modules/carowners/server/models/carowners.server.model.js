@@ -14,20 +14,51 @@ var CarownerSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  title: {
-    type: String,
-    default: '',
-    trim: true,
-    required: 'Title cannot be blank'
+  dateOfBirth: {
+    type: Date
   },
-  content: {
+  placeOfBirth: {
     type: String,
-    default: '',
-    trim: true
+    default: ''
+  },
+  gender: {
+    type: Number
+  },
+  address: {
+    type: String,
+    default: ''
+  },
+  policeNo: {
+    type: String,
+    default: ''
+  },
+  stnkName: {
+    type: String,
+    default: ''
+  },
+  brand: {
+    type: Schema.ObjectId,
+    ref: 'Brand'
+  },
+  materialNo: {
+    type: String,
+    default: ''
+  },
+  manufactureYear: {
+    type: String,
+    default: ''
   },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  userWorkshop: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  },
+  workshop: {
+    type: Schema.ObjectId,
+    ref: 'Workshop'
   }
 });
 

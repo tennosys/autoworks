@@ -1,28 +1,58 @@
-<section>
-  <div class="page-header">
-    <h1>{{vm.carowner._id ? 'Edit Carowner' : 'New Carowner'}}</h1>
-  </div>
-  <div class="col-md-12">
+<section layout-margin layout-padding>
+  <h3>Edit Carowner</h3>
+  <md-content layout-padding>
     <form name="vm.form.carownerForm" class="form-horizontal" ng-submit="vm.save(vm.form.carownerForm.$valid)" novalidate>
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="title">Title</label>
-          <input name="title" type="text" ng-model="vm.carowner.title" id="title" class="form-control" placeholder="Title" required>
-          <div ng-messages="vm.form.carownerForm.title.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Carowner title is required.</p>
+      <h4>Additional Owner Details</h4>
+      <md-input-container class="md-block">
+        <label class="control-label" for="address">Address</label>
+        <textarea name="address" data-ng-model="vm.carowner.address" id="address" class="form-control" cols="30" rows="10"></textarea>
+      </md-input-container>
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block">
+        <label class="control-label" for="placeOfBirth">Place Of Birth</label>
+        <input name="placeOfBirth" type="text" ng-model="vm.carowner.placeOfBirth" id="placeOfBirth" class="form-control">
+      </md-input-container>
+        <md-datepicker ng-model="vm.dt" ng-change="vm.carowner.dateOfBirth = vm.dt.toISOString()" md-placeholder="Date Of Birth">
+      </div>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Gender</label>
+        <md-select ng-model="vm.carowner.gender">
+          <md-option ng-repeat="gender in vm.genders" value="{{gender.value}}">
+            {{gender.name}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <h4>Additional Car Details</h4>
+      <md-input-container class="md-block">
+        <label class="control-label" for="brand">brand</label>
+        <md-select placeholder="Brand" ng-model="vm.carowner.brand" md-on-open="vm.loadBrands()" style="min-width: 200px;">
+          <md-option ng-value="brand" ng-repeat="brand in vm.brands">{{brand.brand}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="policeNo">Police No</label>
+        <input name="policeNo" type="text" ng-model="vm.carowner.policeNo" id="policeNo" class="form-control">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="stnkName">Stnk Name</label>
+        <input name="stnkName" type="text" ng-model="vm.carowner.stnkName" id="stnkName" class="form-control">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="materialNo">Material No</label>
+        <input name="materialNo" type="text" ng-model="vm.carowner.materialNo" id="materialNo" class="form-control">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label class="control-label" for="manufactureYear">Manufacture Year</label>
+        <input name="manufactureYear" type="text" ng-model="vm.carowner.manufactureYear" id="manufactureYear" class="form-control" ng-pattern="/^[0-9]{4}$/" md-maxlength="4">
+        <div ng-messages="vm.form.carownerForm.manufactureYear.$error" role="alert" multiple>
+          <div ng-message="pattern" class="my-message">That doesn't look like a valid year
           </div>
+          <div ng-message="md-maxlength" class="my-message">That's too much</div>
         </div>
-        <div class="form-group">
-          <label class="control-label" for="content">Content</label>
-          <textarea name="content" data-ng-model="vm.carowner.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.carowner._id ? 'Update' : 'Create'}}</button>
-        </div>
-        <div ng-show="vm.error" class="text-danger">
-          <strong ng-bind="vm.error"></strong>
-        </div>
-      </fieldset>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <md-button class="md-raised md-primary" type="submit">Update</md-button>
+      </md-input-container>
     </form>
-  </div>
+  </md-content>
 </section>

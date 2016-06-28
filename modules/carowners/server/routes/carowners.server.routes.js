@@ -12,6 +12,12 @@ module.exports = function (app) {
     .get(carowners.list)
     .post(carowners.create);
 
+  app.route('/api/carowners/user').all(carownersPolicy.isAllowed)
+    .get(carowners.readByUser);
+
+  app.route('/api/carowners/workshop').all(carownersPolicy.isAllowed)
+    .get(carowners.listByWorkshop);
+
   // Single carowner routes
   app.route('/api/carowners/:carownerId').all(carownersPolicy.isAllowed)
     .get(carowners.read)

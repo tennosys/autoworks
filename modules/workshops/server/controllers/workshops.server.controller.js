@@ -121,24 +121,17 @@ exports.workshopByID = function (req, res, next, id) {
 };
 
 exports.listByUser = function (req, res, next) {
-  User.findOne({
-    username: req.params.username.toLowerCase()
-  }, function (err, user) {
+  Workshop.findOne({
+    'user': req.user
+  })
+  .populate('user', 'displayName')
+  .exec(function(err, workshop) {
     if (err) {
       return next(err);
     }
-    Workshop.findOne({
-      'user': user
-    })
-    .populate('user', 'displayName')
-    .exec(function(err, workshop) {
-      if (err) {
-        return next(err);
-      }
-      workshop = workshop ? workshop.toJSON() : {};
-      workshop.isCurrentUserOwner = true;
+    workshop = workshop ? workshop.toJSON() : {};
+    workshop.isCurrentUserOwner = true;
 
-      res.json(workshop);
-    });
+    res.json(workshop);
   });
 };

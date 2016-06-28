@@ -12,7 +12,7 @@ var path = require('path'),
   async = require('async'),
   crypto = require('crypto');
 
-var smtpTransport = nodemailer.createTransport(config.mailer.options);
+var smtpTransport = nodemailer.createTransport('smtps://tennosys%40gmail.com:qfdsoQH2seKi@smtp-pulse.com');
 
 /**
  * Forgot for reset password (forgot POST)
@@ -84,7 +84,9 @@ exports.forgot = function (req, res, next) {
           });
         } else {
           return res.status(400).send({
-            message: 'Failure sending email'
+            message: 'Failure sending email',
+            res: err,
+            mailOptions: mailOptions
           });
         }
 

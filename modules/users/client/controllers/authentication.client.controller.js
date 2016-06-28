@@ -38,7 +38,7 @@
         vm.authentication.user = response;
         $mdToast.show(
           $mdToast.simple()
-            .textContent("Welcome " + vm.authentication.user.displayName)
+            .textContent('Welcome ' + vm.authentication.user.displayName)
             .hideDelay(3000)
         );
         // And redirect to the previous or home page
@@ -67,7 +67,7 @@
         vm.authentication.user = response;
         $mdToast.show(
           $mdToast.simple()
-            .textContent("Welcome " + vm.authentication.user.displayName)
+            .textContent('Welcome ' + vm.authentication.user.displayName)
             .hideDelay(3000)
         );
         // And redirect to the previous or home page

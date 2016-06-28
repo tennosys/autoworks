@@ -8,11 +8,15 @@
   CarownersService.$inject = ['$resource'];
 
   function CarownersService($resource) {
-    return $resource('api/carowners/:carownerId', {
-      carownerId: '@_id'
+    return $resource('api/carowners/:subroute:carownerId/', {
+      carownerId: '@_id',
+      subroute: '@_subroute'
     }, {
       update: {
         method: 'PUT'
+      },
+      user: {
+        method: 'GET'
       }
     });
   }

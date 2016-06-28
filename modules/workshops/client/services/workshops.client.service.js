@@ -8,9 +8,8 @@
   WorkshopsService.$inject = ['$resource'];
 
   function WorkshopsService($resource) {
-    return $resource('api/workshops/:subroute:workshopId/:username', {
+    return $resource('api/workshops/:subroute:workshopId/', {
       workshopId: '@_id',
-      username: '@_username',
       subroute: '@_subroute'
     }, {
       update: {

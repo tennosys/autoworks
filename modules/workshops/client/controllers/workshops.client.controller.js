@@ -39,7 +39,9 @@
       }
 
       function successCallback(res) {
-        $state.go('workshops.user');
+        $state.go('workshops.view', {
+          workshopId: res._id
+        });
       }
 
       function errorCallback(res) {
