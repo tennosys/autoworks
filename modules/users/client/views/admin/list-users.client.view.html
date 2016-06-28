@@ -1,21 +1,24 @@
-<section layout-margin>
-  <div class="page-header">
-    <div class="row">
-      <div class="col-md-4">
-        <h1>Users</h1>
-      </div>
-      <div class="col-md-4" style="margin-top: 2em">
-        <input class="form-control col-md-4" type="text" ng-model="vm.search" placeholder="Search" ng-change="vm.figureOutItemsToDisplay()" />
-      </div>
+<div flex-gt-sm flex>
+  <md-toolbar layout="row" class="md-hue-3">
+    <div class="md-toolbar-tools" flex="y">
+      <span>Users</span>
     </div>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="user in vm.pagedItems" ui-sref="admin.user({userId: user._id})" class="list-group-item">
-      <h4 class="list-group-item-heading" ng-bind="user.username"></h4>
-      <p class="list-group-item-text pull-right small" ng-bind="user.roles"></p>
-      <p class="list-group-item-text" ng-bind="user.email"></p>
-    </a>
-  </div>
-
-  <uib-pagination boundary-links="true" max-size="8" items-per-page="vm.itemsPerPage" total-items="vm.filterLength" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></uib-pagination>
-</section>
+    <md-input-container class="md-block"  flex="50">
+      <label class="control-label" for="search">Search</label>
+      <input name="search" type="text" ng-model="vm.search" id="search" class="form-control">
+    </md-input-container>
+  </md-toolbar>
+  <md-content>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">{{vm.users.length}} users</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="item in vm.users | filter: vm.search" ng-click="null" ui-sref="admin.user({userId: item._id })">
+        <div class="md-list-item-text" layout="column">
+          <h3>{{item.username}}</h3>
+          <h4><span ng-repeat="role in item.roles">{{role}} <span ng-if="!$last">,</span></span></h4>
+          <p>{{item.email}}</p>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>
