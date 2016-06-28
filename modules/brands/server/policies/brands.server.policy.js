@@ -31,6 +31,15 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
+    roles: ['carowner'],
+    allows: [{
+      resources: '/api/brands',
+      permissions: ['get']
+    }, {
+      resources: '/api/brands/:brandId',
+      permissions: ['get']
+    }]
+  }, {
     roles: ['guest'],
     allows: [{
       resources: '/api/brands',

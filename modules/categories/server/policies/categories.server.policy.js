@@ -31,6 +31,15 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
+    roles: ['carowner'],
+    allows: [{
+      resources: '/api/categories',
+      permissions: ['get']
+    }, {
+      resources: '/api/categories/:categoryId',
+      permissions: ['get']
+    }]
+  }, {
     roles: ['guest'],
     allows: [{
       resources: '/api/categories',

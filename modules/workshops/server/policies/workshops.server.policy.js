@@ -34,15 +34,21 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }]
   }, {
-    roles: ['guest'],
+    roles: ['carowner'],
     allows: [{
       resources: '/api/workshops',
       permissions: ['get']
     }, {
       resources: '/api/workshops/:workshopId',
       permissions: ['get']
+    }]
+  }, {
+    roles: ['guest'],
+    allows: [{
+      resources: '/api/workshops',
+      permissions: ['get']
     }, {
-      resources: '/api/workshops/user/:username',
+      resources: '/api/workshops/:workshopId',
       permissions: ['get']
     }]
   }]);

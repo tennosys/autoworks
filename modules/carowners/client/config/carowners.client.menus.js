@@ -13,14 +13,14 @@
       state: 'carowners',
       type: 'dropdown',
       class: 'zmdi zmdi-car',
-      roles: ['admin', 'user']
+      roles: ['admin', 'user', 'carowner']
     });
 
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'carowners', {
       title: 'List Car Owners',
       state: 'carowners.list',
-      roles: ['admin', 'user', 'carowner']
+      roles: ['admin', 'user']
     });
 
     // Add the dropdown create item

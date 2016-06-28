@@ -40,6 +40,15 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }, {
       resources: '/api/carowners/:carownerId',
+      permissions: ['get', 'post', 'put']
+    }]
+  }, {
+    roles: ['guest'],
+    allows: [{
+      resources: '/api/carowners',
+      permissions: ['get']
+    }, {
+      resources: '/api/carowners/:workshopId',
       permissions: ['get']
     }]
   }]);

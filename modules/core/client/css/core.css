@@ -282,3 +282,137 @@ md-list-item a{
   padding-top: 10px !important;
   margin: 0 !important;
 }
+section#home {
+    background: #eee;
+    color: #444
+}
+
+section#home .double-panel__body, section#home .double-panel__media {
+    text-align: center
+}
+
+section h2 {
+    font-weight: 100;
+    padding-top: 11.63vh;
+    margin-bottom: 9.3vh;
+    margin-top: 0;
+    font-size: 48px;
+    line-height: 1;
+    text-align: center;
+}
+
+section p {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 300;
+}
+
+section header,section>div {
+    padding: 0 5% 0 5%
+}
+
+section {
+    height: 89.5vh!important
+}
+
+.double-panel {
+    display: block;
+    height: 100%;
+    float: left;
+    width: 90%;
+}
+
+.double-panel__media {
+    float: left;
+    width: 58%;
+    margin: 0 1%;
+    position: relative;
+    height: 100%;
+    flex: none!important
+}
+
+.double-panel__body {
+    float: left;
+    width: 39%;
+    margin: 0 .5%;
+    text-align: center;
+}
+
+.double-panel__image {
+    padding-left: 60px;
+    padding-right: 80px
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto
+    margin: 0 auto;
+}
+
+.double-panel__image--home {
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: 10px
+}
+
+@media (max-width: 768px) {
+    section#home h2 {
+        font-size:32px;
+        width: 100%;
+        margin-bottom: 39px
+    }
+
+    .double-panel__body,.double-panel__image, .double-panel__media {
+      width:100%!important
+    }
+
+    .double-panel,.double-panel__body,.double-panel__media {
+        float: none
+    }
+
+    .double-panel__media {
+        width: 95%;
+        margin: 0 auto
+    }
+
+    .double-panel__image {
+        padding: 0
+    }
+
+    .double-panel {
+        height: auto
+    }
+
+    .double-panel__image--home {
+        position: static;
+        width: auto;
+        display: inline-block;
+        margin-top: 10px
+    }
+
+    #home.section {
+        height: auto!important
+    }
+}
+
+@media (min-width: 769px) and (max-width:1024px) {
+    section#home h2 {
+        font-size:32px;
+        padding-top: 6vh
+    }
+    .double-panel__image {
+        padding-left:5px;
+        padding-right: 32px
+    }
+}
+
+
+@media (min-width: 1025px) {
+    section#home h2 {
+        margin-left:-40px;
+        margin-right: -42px
+    }
+}
+
