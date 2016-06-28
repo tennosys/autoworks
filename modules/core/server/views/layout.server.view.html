@@ -74,14 +74,11 @@
   <!--Application JavaScript Files-->
   {% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
 
-  {% if livereload %}
-  <!--Livereload script rendered -->
-  <script type="text/javascript" src="{{host}}:35729/livereload.js"></script>
-  {% endif %}
+
 
   <script>
     // sw-precache
-    /*if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js', { scope: '/' }).then(function(reg) {
         reg.onupdatefound = function() {
           var installingWorker = reg.installing;
@@ -103,7 +100,7 @@
       }).catch(function(e) {
         console.error('Error during service worker registration:', e);
       });
-    }*/
+    }
   </script>
 </body>
 
