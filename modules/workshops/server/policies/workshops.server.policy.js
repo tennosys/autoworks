@@ -32,6 +32,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/workshops/user/:username',
       permissions: ['get']
+    }, {
+      resources: '/api/workshops/user',
+      permissions: ['get']
     }]
   }, {
     roles: ['carowner'],
