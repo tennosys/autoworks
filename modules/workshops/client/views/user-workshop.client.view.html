@@ -1,11 +1,7 @@
 <section ng-show="vm.workshop._id" layout-margin layout-padding>
   <div class="page-header">
-    <h1 ng-bind="vm.workshop.companyName"></h1>
+    <h2 ng-bind="vm.workshop.companyName"></h2>
   </div>
-  <p class="lead" ng-bind="vm.workshop.address"></p>
-  <p class="lead" ng-bind="vm.workshop.phoneNo"></p>
-  <p class="lead" ng-bind="vm.workshop.openingHours"></p>
-  <p class="lead" ng-bind="vm.workshop.description"></p>
   <div flex layout="row" ng-show="vm.workshop.isCurrentUserOwner">
     <md-button ui-sref="workshops.edit({ workshopId: vm.workshop._id })"
                title="Edit"
@@ -20,6 +16,14 @@
       <md-icon class="zmdi zmdi-delete"></md-icon>
     </md-button>
   </div>
+  <h4>Address</h4>
+  <p class="lead" ng-bind="vm.workshop.address"></p>
+  <h4>Phone No</h4>
+  <p class="lead" ng-bind="vm.workshop.phoneNo"></p>
+  <h4>Opening Hours</h4>
+  <p class="lead" ng-bind="vm.workshop.openingHours"></p>
+  <h4>Description</h4>
+  <p class="lead" ng-bind="vm.workshop.description"></p>
 </section>
 <section ng-show="!vm.workshop._id" layout-margin layout-padding>
   <h3>{{vm.workshop._id ? 'Edit Workshop' : 'New Workshop'}}</h3>

@@ -206,6 +206,7 @@ exports.readByUser = function (req, res, next) {
   })
   .populate('user', 'displayName')
   .populate('workshop', 'companyName')
+  .populate('brand', 'brand')
   .exec(function(err, carowner) {
     if (err) {
       return next(err);

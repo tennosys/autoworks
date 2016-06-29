@@ -17,16 +17,26 @@
     </md-button>
   </div>
   <h3>Additional Owner Details</h3>
+  <h4>Address</h4>
   <p class="lead" ng-bind="vm.carowner.address"></p>
-  <p class="lead" ng-bind="vm.carowner.dateOfBirth"></p>
+  <h4>Place Of Birth</h4>
   <p class="lead" ng-bind="vm.carowner.placeOfBirth"></p>
-  <p class="lead" ng-bind="vm.carowner.gender"></p>
+  <h4>Date Of Birth</h4>
+  <p class="lead" ng-bind="vm.carowner.dateOfBirth | date:'MM/dd/yyyy'"></p>
+  <h4>Gender</h4>
+  <p class="lead">{{vm.carowner.gender === 0 ? 'Male' : 'Female'}}</p>
   <h3>Additional Car Details</h3>
+  <h4>Police No</h4>
   <p class="lead" ng-bind="vm.carowner.policeNo"></p>
+  <h4>STNK Name</h4>
   <p class="lead" ng-bind="vm.carowner.stnkName"></p>
+  <h4>Brand</h4>
   <p class="lead" ng-bind="vm.carowner.brand.brand"></p>
+  <h4>Material No</h4>
   <p class="lead" ng-bind="vm.carowner.materialNo"></p>
+  <h4>Manufacture Year</h4>
   <p class="lead" ng-bind="vm.carowner.manufactureYear"></p>
-  <p class="lead" ng-bind="vm.carowner.workshop.companyName"></p>
+  <h3>Workshop</h3>
+  <md-button md-no-ink class="md-primary" ui-sref="workshops.view({ workshopId: vm.carowner.workshop._id })">{{vm.carowner.workshop.companyName}}</md-button>
 </section>
 
