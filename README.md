@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tennosys/autoworks.svg?branch=master)](https://travis-ci.org/tennosys/autoworks)
+[![Build Status](https://travis-ci.com/tennosys/autoworks.svg?token=ehLoJWSBQ43rsh2t7cjQ&branch=master)](https://travis-ci.com/tennosys/autoworks)
 
 ## AutoWorks
 
